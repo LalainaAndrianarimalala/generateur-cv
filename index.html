@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de CV</title>
+    <link rel="stylesheet" href="public/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div class="form-container">
+        <h2 class="text-2xl font-bold text-center mb-6">Générateur de CV rapide</h2>
+        <form id="cv-form">
+            <!-- Informations personnelles -->
+            <div class="form-section">
+                <h2>Informations Personnelles</h2>
+                <label for="name">Nom et Prénom</label>
+                <input type="text" id="name" name="name" placeholder="Nom et Prénom">
+                
+                <label for="title">Titre</label>
+                <input type="text" id="title" name="title" placeholder="Titre ex : 'Commerçant et livreur dynamique' ">
+
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="E-mail">
+
+                <label for="phone">Téléphone</label>
+                <input type="tel" id="phone" name="phone" placeholder="Téléphone">
+
+                <label for="address">Adresse</label>
+                <input type="text" id="address" name="address" placeholder="Adresse">
+
+                <label for="photo">Télécharger votre photo</label>
+                <input type="file" id="photo" name="photo" accept="image/*" class="w-full">
+                
+                <label for="profile">Profil Professionnel</label>
+                <textarea id="profile" name="profile" rows="4" placeholder="Profil Professionnel ex:'Motivé et organisé, j'ai développé d'excellentes compétences en vente...' "></textarea>
+            </div>
+
+            <!-- Expériences professionnelles -->
+            <div class="form-section">
+                <h2>Expériences Professionnelles</h2>
+                <div id="experiences-container">
+                    <div class="experience-item p-4 mb-4 border rounded-lg bg-gray-50">
+                        <label for="exp-title-0">Titre du poste</label>
+                        <input type="text" id="exp-title-0" name="exp-title-0" placeholder="Titre du poste ex : 'Vendeur et Livreur'">
+                        <label for="exp-company-0">Entreprise</label>
+                        <input type="text" id="exp-company-0" name="exp-company-0" placeholder="Entreprise">
+                        <label for="exp-dates-0">Dates</label>
+                        <input type="text" id="exp-dates-0" name="exp-dates-0" placeholder="Dates ex : '2022 - 2025' ">
+                        <label for="exp-responsibilities-0">Responsabilités (séparées par des points-virgules)</label>
+                        <textarea id="exp-responsibilities-0" name="exp-responsibilities-0" rows="3" placeholder="Responsabilités ex : 'Gestion des ventes ; Préparation des commandes ; Organisation des trajets' "></textarea>
+                    </div>
+                </div>
+                <button type="button" class="btn-secondary w-full" id="add-experience">Ajouter une expérience</button>
+            </div>
+
+            <!-- Formation -->
+            <div class="form-section">
+                <h2>Formation</h2>
+                <div id="education-container">
+                    <div class="education-item p-4 mb-4 border rounded-lg bg-gray-50">
+                        <label for="edu-degree-0">Diplôme</label>
+                        <input type="text" id="edu-degree-0" name="edu-degree-0" placeholder="Baccalauréat">
+                        <label for="edu-school-0">Établissement</label>
+                        <input type="text" id="edu-school-0" name="edu-school-0" placeholder="Collège Catholique Saint Michel Itaosy">
+                        <label for="edu-year-0">Année</label>
+                        <input type="text" id="edu-year-0" name="edu-year-0" placeholder="2015">
+                    </div>
+                </div>
+                <button type="button" class="btn-secondary w-full" id="add-education">Ajouter une formation</button>
+            </div>
+
+            <!-- Compétences -->
+            <div class="form-section">
+                <h2>Compétences</h2>
+                <div id="skills-container">
+                     <div class="skill-item p-4 mb-4 border rounded-lg bg-gray-50">
+                        <label for="skill-0">Compétence</label>
+                        <input type="text" id="skill-0" name="skill-0" placeholder="Compétence">
+                    </div>
+                </div>
+                <button type="button" class="btn-secondary w-full" id="add-skill">Ajouter une compétence</button>
+            </div>
+
+            <!-- Informations complémentaires -->
+            <div class="form-section">
+                <h2>Informations complémentaires</h2>
+                <label for="languages">Langues (séparées par des points-virgules)</label>
+                <input type="text" id="languages" name="languages" placeholder="Malagasy (langue maternelle); Français (avancé)">
+                
+                <label for="hobbies">Loisirs (séparées par des points-virgules)</label>
+                <input type="text" id="hobbies" name="hobbies" placeholder="Football; voyages">
+            </div>
+
+            <button type="button" id="download-button" class="btn-primary w-full mt-4 download-button">Télécharger le CV en PDF</button>
+        </form>
+    </div>
+
+    <!-- CV Preview -->
+    <div id="cv-preview-container" class="cv-preview-container rounded-lg">
+        <div id="cv-content">
+            <!-- Le contenu du CV sera généré ici par le JavaScript -->
+        </div>
+    </div>
+    <script src="src/app.js"></script>
+</body>
+</html>
